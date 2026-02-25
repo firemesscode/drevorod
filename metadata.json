@@ -1,0 +1,5 @@
+{
+  "name": "Family Tree App",
+  "description": "Interactive family tree application with Supabase backend, minimalist UI, and secure editing.",
+  "requestFramePermissions": []
+}
