@@ -11,7 +11,8 @@ export default function AuthGuard() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === '2055') {
+    const correctPassword = import.meta.env.VITE_EDIT_PASSWORD || '2055';
+    if (password === correctPassword) {
       setEditMode(true);
       setIsOpen(false);
       setPassword('');

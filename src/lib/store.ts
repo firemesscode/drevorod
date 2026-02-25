@@ -266,7 +266,7 @@ export const useStore = create<AppState>((set, get) => ({
           id: unionId,
           type: 'union',
           position: { x: 0, y: 0 },
-          data: { label: '' },
+          data: { label: '', parentIds: [p1, p2] },
           draggable: false,
           connectable: false,
         });
