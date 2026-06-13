@@ -1,45 +1,55 @@
 {
-  "name": "react-example",
-  "private": true,
-  "version": "0.0.0",
+  "name": "changeloom",
+  "version": "0.1.0",
+  "description": "Weave your git history into release notes humans actually read — powered by Claude.",
   "type": "module",
+  "bin": {
+    "changeloom": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview",
-    "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "changelog",
+    "release-notes",
+    "git",
+    "claude",
+    "anthropic",
+    "ai",
+    "cli",
+    "github-action",
+    "conventional-commits",
+    "developer-tools"
+  ],
+  "author": "Changeloom contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firemesscode/drevorod.git"
   },
   "dependencies": {
-    "@google/genai": "^1.29.0",
-    "@supabase/supabase-js": "^2.97.0",
-    "@tailwindcss/vite": "^4.1.14",
-    "@vitejs/plugin-react": "^5.0.4",
-    "@xyflow/react": "^12.10.1",
-    "better-sqlite3": "^12.4.1",
-    "clsx": "^2.1.1",
-    "dagre": "^0.8.5",
-    "date-fns": "^4.1.0",
-    "dotenv": "^17.2.3",
-    "express": "^4.21.2",
-    "lucide-react": "^0.546.0",
-    "motion": "^12.23.24",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.5.0",
-    "uuid": "^13.0.0",
-    "vite": "^6.2.0",
-    "zustand": "^5.0.11"
+    "@anthropic-ai/sdk": "^0.104.1",
+    "commander": "^12.1.0"
   },
   "devDependencies": {
-    "@types/dagre": "^0.7.53",
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.14.0",
-    "@types/uuid": "^10.0.0",
-    "autoprefixer": "^10.4.21",
-    "tailwindcss": "^4.1.14",
-    "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
   }
 }

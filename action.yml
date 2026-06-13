@@ -1,0 +1,55 @@
+name: "Changeloom"
+description: "Generate AI-powered release notes from your git history with Claude."
+branding:
+  icon: "git-commit"
+  color: "purple"
+inputs:
+  from:
+    description: "Start of the commit range (default: most recent tag)."
+    required: false
+  to:
+    description: "End of the commit range."
+    required: false
+    default: "HEAD"
+  release:
+    description: "Version label for the release (default: the --to ref)."
+    required: false
+  changelog:
+    description: "Path to a CHANGELOG file to prepend to. Leave empty to write to --output instead."
+    required: false
+    default: "CHANGELOG.md"
+  output:
+    description: "Write notes to this file instead of updating the changelog."
+    required: false
+  offline:
+    description: "Set to 'true' to skip Claude and use the deterministic offline renderer."
+    required: false
+    default: "false"
+  model:
+    description: "Anthropic model id."
+    required: false
+    default: "claude-opus-4-8"
+  anthropic_api_key:
+    description: "Anthropic API key. Omit to run in offline mode."
+    required: false
+  package_version:
+    description: "npm version/tag of changeloom to run."
+    required: false
+    default: "latest"
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      env:
+        ANTHROPIC_API_KEY: ${{ inputs.anthropic_api_key }}
+      run: |
+        args=( --to "${{ inputs.to }}" --model "${{ inputs.model }}" )
+        [ -n "${{ inputs.from }}" ] && args+=( --from "${{ inputs.from }}" )
+        [ -n "${{ inputs.release }}" ] && args+=( --release "${{ inputs.release }}" )
+        if [ "${{ inputs.offline }}" = "true" ]; then args+=( --offline ); fi
+        if [ -n "${{ inputs.output }}" ]; then
+          args+=( --output "${{ inputs.output }}" )
+        else
+          args+=( --changelog "${{ inputs.changelog }}" )
+        fi
+        npx --yes "changeloom@${{ inputs.package_version }}" "${args[@]}"
