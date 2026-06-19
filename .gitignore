@@ -1,9 +1,6 @@
-node_modules/
+# Склонированный справочный репозиторий со скиллами (не коммитим)
 Awesome-Journal-Skills/
-build/
-dist/
-coverage/
+
+# Системное
 .DS_Store
 *.log
-.env*
-!.env.example

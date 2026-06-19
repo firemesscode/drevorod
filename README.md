@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Vacation Skills — скиллы-помощники для отпуска
 
-# Run and deploy your AI Studio app
+Набор скиллов для Claude Code, помогающих подготовиться к отпуску и пройти его без сюрпризов: спланировать маршрут и перелёт, собрать чемодан, укомплектовать аптечку и понять, что делать при болезни в поездке.
 
-This contains everything you need to run your app locally.
+## Состав
 
-View your app in AI Studio: https://ai.studio/apps/99ce9004-2852-4322-ad24-9a8ba8538528
+| Скилл | Назначение |
+|---|---|
+| `vacation-workflow` | Точка входа: определяет этап и направляет к нужному скиллу |
+| `trip-planning` | Маршрут, перелёт, стыковки, жильё, документы, виза, страховка, бюджет |
+| `packing-list` | Список вещей под климат, формат и длительность поездки |
+| `travel-medkit` | Состав дорожной аптечки по категориям средств |
+| `travel-health` | Что делать при типичных недомоганиях в поездке и когда срочно к врачу |
 
-## Run Locally
+## Установка
 
-**Prerequisites:**  Node.js
+**Как плагин (через marketplace):**
+```
+/plugin marketplace add <путь-или-URL-этого-репозитория>
+/plugin install vacation-skills
+```
 
+**Или вручную** — скопировать папки скиллов в `~/.claude/skills/`:
+```
+cp -R skills/* ~/.claude/skills/
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Использование
+
+Просто скажи Клоду, например: «Собираюсь в отпуск в Турцию на 10 дней, помоги спланировать» — сработает `vacation-workflow` и направит дальше. Или вызови конкретный скилл: `/trip-planning`, `/packing-list`, `/travel-medkit`, `/travel-health`.
+
+## ⚠️ Дисклеймер
+
+Скиллы `travel-medkit` и `travel-health` содержат **общую образовательную информацию** и **не заменяют консультацию врача**. Они не назначают лечение и не подбирают дозировки. При серьёзных симптомах обращайтесь за медицинской помощью; в экстренных случаях звоните в местную службу спасения (в ЕС — 112).
+
+## Лицензия
+
+MIT

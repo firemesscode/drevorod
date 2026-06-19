@@ -1,0 +1,17 @@
+{
+  "name": "vacation-skills",
+  "description": "Набор скиллов-помощников для отпуска: планирование маршрута и перелёта, сбор чемодана, состав дорожной аптечки и действия при типичных болезнях в поездке. Контент образовательный; медицинские разделы не заменяют консультацию врача.",
+  "version": "0.1.0",
+  "author": {
+    "name": "firemesscode"
+  },
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "vacation",
+    "trip-planning",
+    "packing-list",
+    "travel-health",
+    "first-aid-kit"
+  ]
+}

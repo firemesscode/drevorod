@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "vacation-skills",
+  "version": "0.1.0",
+  "description": "Скиллы-помощники для отпуска: маршрут и перелёт, сбор чемодана, аптечка, здоровье в поездке.",
+  "owner": {
+    "name": "firemesscode"
+  },
+  "metadata": {
+    "pluginRoot": "./"
+  },
+  "plugins": [
+    {
+      "name": "vacation-skills",
+      "version": "0.1.0",
+      "source": "./",
+      "description": "Пять скиллов для планирования и безопасного прохождения отпуска.",
+      "license": "MIT",
+      "category": "lifestyle",
+      "keywords": [
+        "travel",
+        "vacation",
+        "packing",
+        "first-aid",
+        "health"
+      ],
+      "skills": [
+        "skills/vacation-workflow",
+        "skills/trip-planning",
+        "skills/packing-list",
+        "skills/travel-medkit",
+        "skills/travel-health"
+      ]
+    }
+  ]
+}
